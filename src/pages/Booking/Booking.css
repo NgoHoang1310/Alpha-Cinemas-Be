@@ -1,0 +1,97 @@
+.seat-unselect-normal {
+  background-image: url("../../../assets/images/seats/seat-unselect-normal.png") !important;
+  color: var(--white-color);
+}
+.seat-unselect-vip {
+  background-image: url("../../../assets/images/seats/seat-unselect-vip.png") !important;
+  color: var(--white-color);
+}
+.seat-unselect-double {
+  background-image: url("../../../assets/images/seats/seat-unselect-double.png") !important;
+  color: var(--white-color);
+}
+
+.seat-selected-normal {
+  background-image: url("../../../assets/images/seats/seat-select-normal.png") !important;
+  color: var(--white-color);
+}
+.seat-selected-vip {
+  background-image: url("../../../assets/images/seats/seat-select-vip.png") !important;
+  color: var(--white-color);
+}
+.seat-selected-double {
+  background-image: url("../../../assets/images/seats/seat-select-double.png") !important;
+  color: var(--white-color);
+}
+.seat-buy-normal {
+  background-image: url("../../../assets/images/seats/seat-buy-normal.png") !important;
+  color: var(--white-color);
+}
+.seat-buy-vip {
+  background-image: url("../../../assets/images/seats/seat-buy-vip.png") !important;
+  color: var(--white-color);
+}
+
+.seat-buy-double {
+  background-image: url("../../../assets/images/seats/seat-buy-double.png") !important;
+  color: var(--white-color);
+}
+
+.main-content {
+  margin-top: var(--header-height);
+  min-height: 100vh;
+}
+
+.check-show {
+  min-height: 600px;
+}
+
+.seat-cell {
+  width: 50px;
+  height: 50px;
+  margin: 6px;
+  display: inline-block;
+  text-align: center;
+  line-height: 40px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background-size: contain;
+  background-image: url("http://localhost/Book-movie-tickets/assets/images/seats/seat-unselect-normal.png");
+  background-repeat: no-repeat;
+}
+
+.seat-type-panel {
+  background-color: var(--white-color);
+  padding: 15px 10px;
+}
+
+.seat-type {
+  padding: 0 4px;
+}
+
+.seat-quantity {
+  margin-top: 15px;
+  display: block;
+}
+.total-money-value {
+  margin-top: 30px;
+}
+
+.time-to-left-value {
+  font-size: 3.8rem;
+}
+
+.pannelMovieInfo {
+  background-color: var(--white-color);
+}
+
+.list-unstyled {
+  padding: 10px 25px;
+}
+
+.btn-payment {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 0;
+  outline: none;
+}

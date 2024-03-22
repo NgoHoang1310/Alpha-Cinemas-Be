@@ -1,0 +1,78 @@
+.invalid .form-control {
+  border-color: red !important;
+}
+.invalid .form-message {
+  color: red !important;
+}
+
+.valid-message {
+  color: #1dbfaf !important;
+}
+
+.invalid-message {
+  color: red !important;
+}
+
+.container-auth {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+  min-height: 100vh;
+  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/5fbcc285-a371-48ce-965b-49abcc9a8f39/VN-vi-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg  ");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.auth-wrapper {
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.form-validation__header-content > a {
+  background-color: var(--primary-btn-color);
+  color: var(--white-color);
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.validation {
+  min-height: 400px;
+  padding: 32px;
+}
+
+.btn-success {
+  width: 100%;
+  padding: 8px 0;
+  margin-top: 8px;
+  background-color: var(--primary-btn-color);
+}
+
+.btn-success:hover {
+  background-color: #1dbfaf;
+  border-color: transparent;
+}
+
+.form-control {
+  font-size: 1.4rem;
+  padding: 10px 6px;
+  border: 1px solid #b3b3b3;
+  box-shadow: none;
+}
+.form-control:hover {
+  border-color: #1dbfaf;
+}
+.form-control:focus {
+  box-shadow: none;
+}
+.form-message {
+  font-size: 12px;
+}
+
+.check-password {
+  display: block;
+  margin-top: 4px;
+}
