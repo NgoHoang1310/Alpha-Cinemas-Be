@@ -1,0 +1,7 @@
+RewriteEngine On
+# RewriteRule "api/user" "src/routes/user.php"
+# RewriteRule "api/banner" "src/routes/banner.php"
+# RewriteRule "api/theater" "src/routes/theater.php"
+# RewriteRule "api/movieschedule" "src/routes/movieSchedule.php"
+# RewriteRule "api/movie" "src/routes/movie.php"
+RewriteRule "api" "src/routes/index.php"
