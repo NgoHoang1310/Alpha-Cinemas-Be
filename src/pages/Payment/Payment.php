@@ -1,15 +1,14 @@
 <?php
-include '/Applications/Xampp/htdocs/Book-movie-tickets/src/components/Header/Header.php';
-include '/Applications/Xampp/htdocs/Book-movie-tickets/src/ultils/checkRoom.php';
+include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/Header/Header.php';
+include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/ultils/checkRoom.php';
 $user = (object)json_decode($_COOKIE['userData']);
 $bookingData = (object)json_decode($_COOKIE['bookingData']);
 
-$currentMovie = (object)json_encode(rawurldecode($_COOKIE['currentMovie']));
-print_r($currentMovie);
-// if ($currentMovie[0]->id != $_GET['m']) {
-//     header("location: http://localhost/Book-movie-tickets/alphacinemas.vn/home");
-//     return;
-// }
+$currentMovie = json_decode($_COOKIE['currentMovie']);
+if ($currentMovie[0]->id != $_GET['m']) {
+    header("location: http://localhost/Book-movie-tickets/alphacinemas.vn/home");
+    return;
+}
 $currentPayment = (object)json_decode($_COOKIE['paymentInfo']);
 ?>
 
@@ -18,7 +17,7 @@ $currentPayment = (object)json_decode($_COOKIE['paymentInfo']);
         <div class="row payment pt-5">
             <div class="col-md-8 pannelPayment">
                 <div class="mb-5">
-                    <h3 class="fs-1"><a class="primary-text" href="http://localhost/Book-movie-tickets/alphacinemas.vn/home" previewlistener="true">Trang chủ</a> &gt; <a class="primary-text" href="#">Đặt vé</a> &gt; <span><a class="primary-text" href="/chi-tiet-phim.htm?gf=722ed94a-ade3-488d-9845-8b7634cfd64a" previewlistener="true"><?php echo $dataMovie->data[0]['title'] ?></a></span></h3>
+                    <h3 class="fs-1"><a class="primary-text" href="http://localhost/Book-movie-tickets/alphacinemas.vn/home" previewlistener="true">Trang chủ</a> &gt; <a class="primary-text" href="#">Đặt vé</a> &gt; <span><a class="primary-text" href="/chi-tiet-phim.htm?gf=722ed94a-ade3-488d-9845-8b7634cfd64a" previewlistener="true"><?php echo $currentMovie[0]->title ?></a></span></h3>
                 </div>
                 <div class="row fw-bold d-flex">
                     <h1 class="text-center primary-text" id="tenphim"><?php ?></h1>
@@ -135,7 +134,7 @@ $currentPayment = (object)json_decode($_COOKIE['paymentInfo']);
 
                         </ul>
                         <div class="text-center">
-                            <button class="button-primary btn-payment" style="font-weight: normal;"><span><i style="transform: rotate(-45deg); margin-right: 4px;" class="fa fa-ticket mr3"></i></span>TIẾP TỤC</button>
+                            <button onclick="handlePay(this)" class="button-primary btn-payment" style="font-weight: normal;"><span><i style="transform: rotate(-45deg); margin-right: 4px;" class="fa fa-ticket mr3"></i></span>THANH TOÁN</button>
                             <a href="#dieukhoan-pop-up" class="fancybox-fast-view dieu-khoan-pop-up-hidden" style="font-weight: normal;"><span><i style="transform: rotate(-45deg);" class="fa fa-ticket mr3"></i></span></a>
                         </div>
                     </div>

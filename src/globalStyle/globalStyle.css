@@ -81,3 +81,46 @@ body .break-bar {
   border: 2px dashed darkgrey;
   margin: 5px auto;
 }
+body .sidebar-active {
+  color: black !important;
+  background-color: #c7defd !important;
+}
+
+body .btn-function {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+body .btn {
+  padding: 6px 12px;
+  font-size: 1.4rem;
+  font-weight: bolder;
+}
+
+body .btn-success {
+  background-color: #9df99d;
+  color: #003c00;
+}
+
+body .btn-warning {
+  background-color: #fbe2c5;
+  color: #f49d3a;
+}
+
+body .btn-danger {
+  background-color: #efcaca;
+  color: red;
+}
+
+body .preview-banner {
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 36.5%;
+}
+
+body .clear {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}

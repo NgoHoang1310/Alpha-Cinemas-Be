@@ -3,10 +3,10 @@ $user = (object)json_decode($_COOKIE['userData'], true);
 if (empty($user->id)) {
     header('location:http://localhost/Book-movie-tickets/alphacinemas.vn/login');
 }
-include '/Applications/Xampp/htdocs/Book-movie-tickets/src/components/Header/Header.php';
-include '/Applications/Xampp/htdocs/Book-movie-tickets/src/ultils/checkRoom.php';
-include '/Applications/Xampp/htdocs/Book-movie-tickets/src/ultils/checkSeat.php';
-include '/Applications/Xampp/htdocs/Book-movie-tickets/src/ultils/checkPrice.php';
+include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/Header/Header.php';
+include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/ultils/checkRoom.php';
+include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/ultils/checkSeat.php';
+include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/ultils/checkPrice.php';
 
 
 
@@ -18,10 +18,13 @@ $responseMovie = file_get_contents($apiGetAMovieByTime);
 // $data = (array)json_decode($responseMovie, true);
 $dataMovie = (object)json_decode($responseMovie, true);
 // Mã hóa chuỗi JSON
-// $data_encoded = rawurlencode1(json_encode($dataMovie->data));
+$data_encoded = json_encode($dataMovie->data);
 
-// Lưu chuỗi JSON đã mã hóa vào cookie
-setcookie('currentMovie', $data_encoded, time() + (86400 * 30), "/");
+setcookie("currentMovie", $data_encoded);
+// Lưu chuỗi JSON đã mã hóa vào cookie);
+
+// setcookie("cookie_name", $data_encoded, time() + (86400 * 30), "/");
+echo $data_encoded;
 
 $apiGetSeats = "http://localhost/book_movie_ticket_be/api/seat/get?roomId=" . $dataMovie->data[0]['roomId'];
 $responseSeat = file_get_contents($apiGetSeats);

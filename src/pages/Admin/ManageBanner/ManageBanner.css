@@ -1,0 +1,10 @@
+/* .manage-user-container {
+  overflow-y: scroll;
+} */
+
+.search-area {
+  border: 1px solid black;
+  padding: 10px 12px;
+  border-radius: 5px;
+  margin-bottom: 12px;
+}

@@ -1,6 +1,8 @@
 <?php
 $user = (object)json_decode($_COOKIE['userData']);
 $bookingData = (object)json_decode($_COOKIE['bookingData']);
+
+
 ?>
 
 <div class="modal-header">

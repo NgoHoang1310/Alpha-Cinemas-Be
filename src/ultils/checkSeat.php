@@ -27,11 +27,19 @@ function checkSeatStatus($seatType, $typeSeats, $seatStatus)
 function checkSeatType($seatType, $typeSeats)
 {
     $type = '';
-
-
     foreach ($typeSeats as $type) {
         if ($type['id'] == $seatType) {
             return $type['type'];
+        }
+    }
+}
+
+function checkSeatTypeName($seatType, $typeSeats)
+{
+    $type = '';
+    foreach ($typeSeats as $type) {
+        if ($type['id'] == $seatType) {
+            return $type['typeName'];
         }
     }
 }

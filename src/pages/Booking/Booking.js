@@ -80,11 +80,10 @@ const handleClickOnSeat = function (element) {
 
 const handleContinueBooking = () => {
     let encodedData = getCookie('currentMovie');
-
     // Giải mã dữ liệu JSON
     let decodedData = decodeURIComponent(encodedData);
     let currentMovie = JSON.parse(decodedData);
 
     document.cookie = "paymentInfo=" + JSON.stringify({ seats, total }) + "; expires=" + new Date(new Date().getTime() + 3600 * 1000).toUTCString() + "; path=/";
-    window.location.href = "http://localhost/Book-movie-tickets/alphacinemas.vn/payment?m=" + currentMovie[0].id;
+    window.location.href = "http://localhost/Book-movie-tickets/alphacinemas.vn/payment";
 }

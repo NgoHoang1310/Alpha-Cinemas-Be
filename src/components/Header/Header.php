@@ -6,7 +6,7 @@ $data = (object)json_decode($response, true);
 ?>
 
 <div class="wrapper">
-    <div class="container-md header">
+    <div class="container-md header d-flex justify-content-around">
         <div class="header__logo">
             <a href="http://localhost/Book-movie-tickets/alphacinemas.vn/home">
                 <img src="http://localhost/Book-movie-tickets/assets/images/logo.jpg" alt="">
@@ -39,12 +39,6 @@ $data = (object)json_decode($response, true);
             </div>
             <div class="header__nav__item">
                 <a href=""> GIÁ VÉ</a>
-            </div>
-            <div class="header__nav__item">
-                <a href=""> TIN MỚI VÀ ƯU ĐÃI</a>
-            </div>
-            <div class="header__nav__item">
-                <a href=""> NHƯỢNG QUYỀN</a>
             </div>
         </div>
         <div class="header__auth">

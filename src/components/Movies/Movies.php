@@ -14,7 +14,7 @@ if (($dataMovie->code === 0) && !empty($dataMovie->data)) {
         <div class="col-lg-3 movies__item">
             <?php
             $cardData = $movie;
-            include('/Applications/Xampp/htdocs/Book-movie-tickets/src/components/MovieCard/MovieCard.php')
+            include('/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/MovieCard/MovieCard.php')
             ?>
         </div>
 <?php

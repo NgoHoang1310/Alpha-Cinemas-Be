@@ -12,17 +12,24 @@
     <link rel="stylesheet" href="../assets/font/css/all.min.css">
     <link rel="stylesheet" href="../src/globalStyle/globalStyle.css">
     <link rel="stylesheet" href="../src/components/Header/Header.css">
-    <link rel="stylesheet" href="../src/pages/Auth/Auth.css">
-    <link rel="stylesheet" href="../src/pages/Home/Home.css">
+    <link rel="stylesheet" href="../src/components/SideBar/SideBar.css">
     <link rel="stylesheet" href="../src/components/MovieCard/MovieCard.css">
     <link rel="stylesheet" href="../src/components/Movies/Movies.css">
     <link rel="stylesheet" href="../src/components/ShowTime/ShowTime.css">
     <link rel="stylesheet" href="../src/components/Modal/Booking/BookingModal.css">
     <link rel="stylesheet" href="../src/components/Modal/Payment/PaymentModal.css">
+
+    <link rel="stylesheet" href="../src/pages/Auth/Auth.css">
+    <link rel="stylesheet" href="../src/pages/Home/Home.css">
     <link rel="stylesheet" href="../src/pages/MovieSchedule/MovieSchedule.css">
     <link rel="stylesheet" href="../src/pages/Theater/Theater.css">
     <link rel="stylesheet" href="../src/pages/Booking/Booking.css">
     <link rel="stylesheet" href="../src/pages/Payment/Payment.css">
+    <link rel="stylesheet" href="../src/pages/Transaction/Transaction.css">
+
+    <link rel="stylesheet" href="../src/pages/Admin/DardBoard/DardBoard.css">
+    <link rel="stylesheet" href="../src/pages/Admin/ManageUser/ManagerUser.css">
+    <link rel="stylesheet" href="../src/pages/Admin/ManageMovie/ManagerMovie.css">
 </head>
 
 <body>
@@ -73,6 +80,39 @@
                         include('./pages/Payment/Payment.php');
                         break;
                     }
+                case 'transaction': {
+                        include('./pages/Transaction/Transaction.php');
+                        break;
+                    }
+
+                case 'dardboard': {
+                        include('./pages/Admin/DardBoard/DardBoard.php');
+                        break;
+                    }
+                case 'manage-users': {
+                        include('./pages/Admin/ManageUser/ManageUser.php');
+                        break;
+                    }
+                case 'manage-movies': {
+                        include('./pages/Admin/ManageMovie/ManageMovie.php');
+                        break;
+                    }
+                case 'manage-schedules': {
+                        include('./pages/Admin/ManageMovieSchedule/ManageMovieSchedule.php');
+                        break;
+                    }
+                case 'manage-seats': {
+                        include('./pages/Admin/ManageSeat/ManageSeat.php');
+                        break;
+                    }
+                case 'manage-theaters': {
+                        include('./pages/Admin/ManageTheater/ManageTheater.php');
+                        break;
+                    }
+                case 'manage-banners': {
+                        include('./pages/Admin/ManageBanner/ManageBanner.php');
+                        break;
+                    }
 
 
                     // Thêm các trường hợp khác tại đây nếu có nhiều API
@@ -89,18 +129,21 @@
         <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div id="booking-modal" class="modal-content p-3">
-                    <?php include '/Applications/Xampp/htdocs/Book-movie-tickets/src/components/Modal/Booking/BookingModal.php' ?>
+                    <?php include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/Modal/Booking/BookingModal.php' ?>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div id="payment-modal" class="modal-content p-3">
+                    <?php include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/Payment/PaymentModal.php' ?>
                 </div>
             </div>
         </div>
 
-        <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div id="payment-modal" class="modal-content p-3">
-                    <?php include '/Applications/Xampp/htdocs/Book-movie-tickets/src/components/Modal/Payment/PaymentModal.php' ?>
-                </div>
-            </div>
-        </div>
+
+
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -111,10 +154,16 @@
     <script src="../src/pages/Auth/Register/Register.js"></script>
     <script src="../src/components/ShowTime/ShowTime.js"></script>
     <script src="../src/pages/Home/Home.js"></script>
+    <script src="../src/components/MovieCard/MovieCard.js"></script>
     <script src="../src/pages/MovieSchedule/MovieSchedule.js"></script>
     <script src="../src/pages/Booking/Booking.js"></script>
     <script src="../src/pages/Payment/Payment.js"></script>
-
+    <script src="../src/pages/Admin/ManageUser/ManageUser.js"></script>
+    <script src="../src/pages/Admin/ManageMovie/ManageMovie.js"></script>
+    <script src="../src/pages/Admin/ManageMovieSchedule/ManageMovieSchedule.js"></script>
+    <script src="../src/pages/Admin/ManageSeat/ManageSeat.js"></script>
+    <script src="../src/pages/Admin/ManageTheater/ManageTheater.js"></script>
+    <script src="../src/pages/Admin/ManageBanner/ManageBanner.js"></script>
 </body>
 
 </html>

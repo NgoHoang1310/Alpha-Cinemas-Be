@@ -30,10 +30,13 @@ Validator({
                         authMess.classList.remove('invalid-message');
                         authMess.classList.add('valid-message');
                         authMess.innerText = "Đăng nhập thành công !";
-                        // document.cookie = `id=${response.data.id};userName=${response.data.userName};email=${response.data.email};phoneNumber=${response.data.phoneNumber}`
                         document.cookie = "userData=" + JSON.stringify({ ...response.data, password: "" }) + "; expires=" + new Date(new Date().getTime() + 3600 * 1000).toUTCString() + "; path=/";
                         setTimeout(function () {
-                            window.location.href = 'http://localhost/Book-movie-tickets/alphacinemas.vn/home';
+                            if (response.data.role === 'admin') {
+                                window.location.href = 'http://localhost/Book-movie-tickets/alphacinemas.vn/dardboard';
+                            } else {
+                                window.location.href = 'http://localhost/Book-movie-tickets/alphacinemas.vn/home';
+                            }
                         }, 1000)
                         break;
                     }

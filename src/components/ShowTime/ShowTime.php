@@ -8,7 +8,7 @@ $dataTime = (object)json_decode($responseTime, true);
     <div class="col-md-3 movie-schedule-content__thumb">
         <?php
         $cardData = $data;
-        include '/Applications/Xampp/htdocs/Book-movie-tickets/src/components/MovieCard/Card.php';
+        include('/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/MovieCard/Card.php')
         ?>
     </div>
     <div class="col-md-9 movie-schedule-content__detail">
@@ -28,21 +28,11 @@ $dataTime = (object)json_decode($responseTime, true);
         <div class="movie-schedule-content__detail--showtime">
             <div class="movie-showtime">
                 <h3 class="movie-showtime__heading">2D PHỤ ĐỀ</h3>
-                <div class="movie-showtime__list">
-                    <?php
-                    foreach ($data['screeningTimes'] as $time) {
-                    ?>
-                        <div class="movie-showtime__item">
-                            <p class="time" time="<?php echo $time ?>" movie-id="<?php echo $data['id'] ?>" onclick="handleClickOnTime(this)" data-bs-toggle="modal" data-bs-target="#bookingModal"><?php echo date("H:i", strtotime($time)) ?></p>
-                            <p class="seat">165 ghế trống</p>
-                        </div>
-                    <?php
-                    }
-
-                    ?>
-
-
-                </div>
+                <?php
+                $dataTime = $data['screeningTimes'];
+                $movieId = $data['id'];
+                include('/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/ShowTime/ListTime.php')
+                ?>
             </div>
         </div>
     </div>

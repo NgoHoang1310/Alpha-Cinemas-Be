@@ -5,3 +5,5 @@ const handleLoadMovie = (element) => {
     httpRequest("GET", `http://localhost/Book-movie-tickets/src/components/Movies/Movies.php?status=${value}`, ".row.movies")
 
 }
+
+
