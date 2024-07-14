@@ -7,6 +7,7 @@ const handleGetCurrentMovieScheduleId = (element) => {
 const handleCreateMovieSchedule = () => {
     let movieNameInput = document.querySelector('#addNewMovieSchedule #movieName');
     let roomInput = document.querySelector('#addNewMovieSchedule #roomId');
+    let dayInput = document.querySelector('#addNewMovieSchedule #day');
     let timeInput = document.querySelector('#addNewMovieSchedule #time');
     let statusInput = document.querySelector('#addNewMovieSchedule #status');
 
@@ -15,6 +16,7 @@ const handleCreateMovieSchedule = () => {
 
     formData.append('movieId', movieNameInput.value);
     formData.append('roomId', roomInput.value);
+    formData.append('day', dayInput.value);
     formData.append('time', timeInput.value);
     formData.append('status', statusInput.value);
 
@@ -42,6 +44,7 @@ const handleGetMovieScheduleById = (element) => {
 const handleUpdateMovieSchedule = () => {
     let movieNameInput = document.querySelector('#editMovieSchedule #movieName');
     let roomInput = document.querySelector('#editMovieSchedule #roomId');
+    let dayInput = document.querySelector('#editMovieSchedule #day');
     let timeInput = document.querySelector('#editMovieSchedule #time');
     let statusInput = document.querySelector('#editMovieSchedule #status');
 
@@ -50,6 +53,7 @@ const handleUpdateMovieSchedule = () => {
     formData.append('id', movieScheduleId);
     formData.append('movieId', movieNameInput.value);
     formData.append('roomId', roomInput.value);
+    formData.append('day', dayInput.value);
     formData.append('time', timeInput.value);
     formData.append('status', statusInput.value);
 

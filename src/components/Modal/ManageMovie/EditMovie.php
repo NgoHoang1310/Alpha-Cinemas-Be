@@ -1,5 +1,5 @@
 <?php
-include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/ultils/genarateSchedule.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/Book-movie-tickets/src/ultils/genarateSchedule.php';
 $movieId = $_GET['movieId'];
 $apiGetMovieById = "http://localhost/book_movie_ticket_be/api/movie/getMovieById?movieId=" . $movieId;
 $responseMovie = file_get_contents($apiGetMovieById);
@@ -39,6 +39,13 @@ $dateList = generateDate("7");
         <div class="col-6 mb-5">
             <label for="thumbPath" class="form-label">Ảnh đại diện</label>
             <input class="form-control" type="file" id="thumbPath">
+        </div>
+
+        <div class="col-6 mb-5">
+            <label for="trailer" class="col-sm-4 col-form-label">Link trailer</label>
+            <div class="col-sm-8">
+                <input value="<?php echo $dataMovie->data[0]['trailer'] ?>" type="text" class="form-control" id="trailer" required>
+            </div>
         </div>
 
         <div class="col-4 mb-5">
@@ -81,16 +88,9 @@ $dateList = generateDate("7");
         </div>
         <div class="col-4 mb-5">
             <label for="startDate" class="form-label">Ngày chiếu</label>
-            <select class="form-control" id="startDate" required>
-                <?php
-                // Sử dụng ví dụ
-                foreach ($dateList as $date) {
-                ?>
-                    <option value="<?php echo date("Y-m-d", strtotime($date)) ?>"><?php echo date("Y-m-d", strtotime($date)) ?></option>
-                <?php
-                }
-                ?>
-            </select>
+            <div class="col-sm-8">
+                <input value="<?php echo $dataMovie->data[0]['startDate'] ?>" type="text" class="form-control" id="startDate" required>
+            </div>
         </div>
         <div class="col-4 mb-5">
             <label for="description" class="form-label">Mô tả</label>

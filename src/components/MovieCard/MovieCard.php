@@ -3,7 +3,7 @@
         include('/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/MovieCard/Card.php')
         ?>
      <div class="movies__item-preview--movieName">
-         <a class="link" href=""><?php print_r($movie['title']) ?></a>
+         <a class="link" href="http://localhost/Book-movie-tickets/alphacinemas.vn/movie-detail?m=<?php print_r($movie['id']) ?>"><?php print_r($movie['title']) ?></a>
      </div>
      <div class="movies__item-preview--desc">
          <p class="category">Thể loại: <span><?php print_r($movie['category']) ?></span></p>

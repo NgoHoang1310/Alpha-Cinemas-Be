@@ -1,32 +1,17 @@
 <?php
 $user = (object)json_decode($_COOKIE['userData'], true);
+$currentMovie = (object)json_decode($_COOKIE['currentMovie']);
+
 if (empty($user->id)) {
     header('location:http://localhost/Book-movie-tickets/alphacinemas.vn/login');
+    return;
 }
-include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/Header/Header.php';
-include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/ultils/checkRoom.php';
-include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/ultils/checkSeat.php';
-include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/ultils/checkPrice.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/Book-movie-tickets/src/components/Header/Header.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/Book-movie-tickets/src/ultils/checkRoom.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/Book-movie-tickets/src/ultils/checkSeat.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/Book-movie-tickets/src/ultils/checkPrice.php';
 
-
-
-$movieId = $_GET['m'];
-$time = $_GET['t'];
-
-$apiGetAMovieByTime = "http://localhost/book_movie_ticket_be/api/movie/getAMovieByTime?movieId=" . $movieId . "&time=" . $time;
-$responseMovie = file_get_contents($apiGetAMovieByTime);
-// $data = (array)json_decode($responseMovie, true);
-$dataMovie = (object)json_decode($responseMovie, true);
-// Mã hóa chuỗi JSON
-$data_encoded = json_encode($dataMovie->data);
-
-setcookie("currentMovie", $data_encoded);
-// Lưu chuỗi JSON đã mã hóa vào cookie);
-
-// setcookie("cookie_name", $data_encoded, time() + (86400 * 30), "/");
-echo $data_encoded;
-
-$apiGetSeats = "http://localhost/book_movie_ticket_be/api/seat/get?roomId=" . $dataMovie->data[0]['roomId'];
+$apiGetSeats = "http://localhost/book_movie_ticket_be/api/seat/get?roomId=" . $currentMovie->roomId;
 $responseSeat = file_get_contents($apiGetSeats);
 $dataSeat = (object)json_decode($responseSeat, true);
 
@@ -40,7 +25,7 @@ $dataPrice = (object)json_decode($responsePrice, true);
 
 ?>
 
-<div class="booking-container">
+<div class="booking-container mt-default">
     <div class="container-md main-content mb-5">
         <div class="row booking pt-5">
             <div class="col-md-8 pannelShowSeat">
@@ -95,7 +80,7 @@ $dataPrice = (object)json_decode($responsePrice, true);
                                 <span class="seat-type-name fw-bold ">Ghế thường</span>
                             </div>
                             <div class="col-md">
-                                <span id="seat-normal-quantity" class="seat-quantity seat-empty-quantity seat-normal-quantity">70.000đ</span>
+                                <span id="seat-normal-quantity" class="seat-quantity seat-empty-quantity seat-normal-quantity"><?php echo  number_format($dataPrice->data[0]['price'], 0, ',', '.')  ?>đ</span>
                             </div>
                         </div>
                     </div>
@@ -108,7 +93,7 @@ $dataPrice = (object)json_decode($responsePrice, true);
                                 <span class="seat-type-name fw-bold">Ghế VIP</span>
                             </div>
                             <div class="col-md">
-                                <span id="seat-vip-quantity" class="seat-quantity seat-vip-quantity">80.000đ</span>
+                                <span id="seat-vip-quantity" class="seat-quantity seat-vip-quantity"><?php echo  number_format($dataPrice->data[2]['price'], 0, ',', '.')  ?>đ</span>
                             </div>
                         </div>
                     </div>
@@ -121,7 +106,7 @@ $dataPrice = (object)json_decode($responsePrice, true);
                                 <span class="seat-type-name fw-bold">Ghế đôi</span>
                             </div>
                             <div class="col-md">
-                                <span id="seat-double-quantity" class="seat-quantity seat-double-quantity">90.000đ</span>
+                                <span id="seat-double-quantity" class="seat-quantity seat-double-quantity"><?php echo  number_format($dataPrice->data[1]['price'], 0, ',', '.')  ?>đ</span>
                             </div>
                         </div>
                     </div>
@@ -149,14 +134,14 @@ $dataPrice = (object)json_decode($responsePrice, true);
                 <div class="row ">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <div class="pi-img-wrapper">
-                            <img class="img-responsive" style="width: 100%" alt="" src="<?php echo $dataMovie->data[0]['thumbPath'] ?>">
+                            <img class="img-responsive" style="width: 100%" alt="" src="<?php echo $currentMovie->thumbPath ?>">
                             <span style="position: absolute; top: 10px; left: 10px;">
                                 <img src="/Assets/Common/icons/films/p.png" class="img-responsive">
                             </span>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <h3 class="fw-bold primary-text fs-1 mt-5"><?php echo $dataMovie->data[0]['title'] ?></h3>
+                        <h3 class="fw-bold primary-text fs-1 mt-5"><?php echo $currentMovie->title ?></h3>
                         <h4 class="fw-bold fs-3">2D Phụ đề</h4>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-4 col-xs-12">
@@ -167,7 +152,7 @@ $dataPrice = (object)json_decode($responsePrice, true);
                                         <i class="fa fa-tags"></i>&nbsp;Thể loại
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
-                                        <span class="fw-bold"><?php echo $dataMovie->data[0]['category'] ?></span>
+                                        <span class="fw-bold"><?php echo $currentMovie->category ?></span>
                                     </div>
                                 </div>
                             </li>
@@ -177,7 +162,7 @@ $dataPrice = (object)json_decode($responsePrice, true);
                                         <i class="fa-solid fa-clock"></i>&nbsp;Thời lượng
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
-                                        <span class="fw-bold"><?php echo $dataMovie->data[0]['duration'] ?> phút</span>
+                                        <span class="fw-bold"><?php echo $currentMovie->duration ?> phút</span>
                                     </div>
                                 </div>
                             </li>
@@ -202,19 +187,19 @@ $dataPrice = (object)json_decode($responsePrice, true);
                                         <i class="fa fa-calendar"></i>&nbsp;
                                         Ngày chiếu
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><span class="fw-bold"><?php echo $dataMovie->data[0]['startDate'] ?></span></div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><span class="fw-bold"><?php echo $currentMovie->startDate ?></span></div>
                                 </div>
                             </li>
                             <li class="">
                                 <div class="row p-3">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><i class="fa-solid fa-clock"></i>&nbsp;Giờ chiếu</div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><span class="fw-bold"><?php echo $dataMovie->data[0]['time'] ?></span></div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><span class="fw-bold"><?php echo $currentMovie->time ?></span></div>
                                 </div>
                             </li>
                             <li class="">
                                 <div class="row p-3">
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><i class="fa fa-desktop"></i>&nbsp;Phòng chiếu</div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><span class="fw-bold"><?php echo checkRoom($dataMovie->data[0]['roomId']) ?></span></div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><span class="fw-bold"><?php echo checkRoom($currentMovie->roomId) ?></span></div>
                                 </div>
                             </li>
                             <li class="">

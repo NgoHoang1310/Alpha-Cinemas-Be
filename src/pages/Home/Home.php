@@ -1,15 +1,14 @@
 <?php
-include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/Header/Header.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/Book-movie-tickets/src/components/Header/Header.php';
 
 //api banner
 $apiBanner = 'http://localhost/book_movie_ticket_be/api/banner/get';
 $responseBanner = file_get_contents($apiBanner);
 $dataBanner = (object)json_decode($responseBanner, true);
 
-
 ?>
 
-<div class="home-container">
+<div class="home-container mt-default">
     <div class="slider">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -58,21 +57,19 @@ $dataBanner = (object)json_decode($responseBanner, true);
             </div>
             <div class="row movies">
                 <?php
-                include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/Movies/Movies.php'
+                include $_SERVER['DOCUMENT_ROOT'] . '/Book-movie-tickets/src/components/Movies/Movies.php'
                 ?>
             </div>
 
 
         </div>
     </div>
-    <h1>Home page</h1>
-
 </div>
 <div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div id="schedule-modal" class="modal-content p-3">
             <?php
-            include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/Schedule/Schedule.php';
+            include $_SERVER['DOCUMENT_ROOT'] . '/Book-movie-tickets/src/components/Schedule/Schedule.php';
             ?>
         </div>
     </div>

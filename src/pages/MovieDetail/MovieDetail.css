@@ -1,0 +1,7 @@
+/* .movie-detail-container {
+  margin-top: var(--header-height);
+} */
+
+.movie-detail-infor__desc {
+  min-height: 100px;
+}

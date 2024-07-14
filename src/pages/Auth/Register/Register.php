@@ -22,23 +22,18 @@
                      <label for="formGroupExampleInput" class="form-label">Mật khẩu</label>
                      <input type="password" class="form-control form-control-lg" id="formPassword" name="password" placeholder="Nhập mật khẩu">
                      <span class="form-message"></span>
-                     <!-- <span class="check-password">
-                      <input type="checkbox" class="checkbox-btn" value="off">
-                      Hiện mật khẩu
-                     </span>
-                  </div> -->
-                     <div class="mb-3">
-                         <label for="formGroupExampleInput" class="form-label">Xác nhận mật khẩu</label>
-                         <input type="password" class="form-control form-control-lg" id="formPasswordVerification" name="passwordConfirm" placeholder="Xác nhận mật khẩu">
-                         <span class="form-message"></span>
-                         <span class="check-password">
-                             <input type="checkbox" class="checkbox-btn" value="off">
-                             Hiện mật khẩu
-                         </span>
-                     </div>
-                     <button type="submit" class="btn btn-success btn-lg fs-4">Đăng Kí</button>
-                     <span class="form-message auth-message fs-4 valid"></span>
                  </div>
+                 <div class="mb-3">
+                     <label for="formGroupExampleInput" class="form-label">Xác nhận mật khẩu</label>
+                     <input type="password" class="form-control form-control-lg" id="formPasswordVerification" name="passwordConfirm" placeholder="Xác nhận mật khẩu">
+                     <span class="form-message"></span>
+                     <span class="check-password">
+                         <input type="checkbox" class="checkbox-btn" value="off">
+                         Hiện mật khẩu
+                     </span>
+                 </div>
+                 <button type="submit" class="btn btn-success btn-lg fs-4">Đăng Kí</button>
+                 <span class="form-message auth-message fs-4 valid"></span>
          </form>
      </div>
  </div>

@@ -1,6 +1,6 @@
 let userId = "";
 
-const handleGetCurrentId = (element) => {
+let handleGetCurrentUserId = (element) => {
     userId = element.parentNode.parentNode.getAttribute('data-user-id');
 }
 
@@ -36,10 +36,12 @@ const handleCreateUser = () => {
                 }, 500)
             }
         })
+
+
 }
 
 const handleGetUserById = (element) => {
-    handleGetCurrentId(element);
+    handleGetCurrentUserId(element);
     httpRequest("GET", `http://localhost/Book-movie-tickets/src/components/Modal/ManageUser/EditUser.php?userId=${userId}`, "#editUser-modal")
 }
 

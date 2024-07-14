@@ -3,7 +3,7 @@
 }
 
 .movie-schedule {
-  margin-top: var(--header-height);
+  /* margin-top: var(--header-height); */
   font-size: 2.2rem;
 }
 

@@ -31,6 +31,13 @@
             <input class="form-control" type="file" id="thumbPath">
         </div>
 
+        <div class="col-6 mb-5">
+            <label for="trailer" class="col-sm-4 col-form-label">Link trailer</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="trailer" required>
+            </div>
+        </div>
+
         <div class="col-4 mb-5">
             <label for="trend" class="form-label">Trending</label>
             <select class="form-control" id="trend" required>
@@ -71,9 +78,9 @@
         </div>
         <div class="col-4 mb-5">
             <label for="startDate" class="form-label">Ngày chiếu</label>
-            <select class="form-control" id="startDate" required>
-                <option selected value="2024-03-27">2024-03-27</option>
-            </select>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="startDate" required>
+            </div>
         </div>
         <div class="col-4 mb-5">
             <label for="description" class="form-label">Mô tả</label>

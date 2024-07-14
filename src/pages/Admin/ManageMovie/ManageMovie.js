@@ -10,6 +10,7 @@ const handleCreateMovie = () => {
     let categoryInput = document.querySelector('#addNewMovie #category');
     let durationInput = document.querySelector('#addNewMovie #duration');
     let thumbPathInput = document.querySelector('#addNewMovie #thumbPath');
+    let trailerInput = document.querySelector('#addNewMovie #trailer');
     let trendInput = document.querySelector('#addNewMovie #trend');
     let limitnationInput = document.querySelector('#addNewMovie #limitnation');
     let statusInput = document.querySelector('#addNewMovie #status');
@@ -25,6 +26,7 @@ const handleCreateMovie = () => {
     formData.append('category', categoryInput.value);
     formData.append('duration', durationInput.value);
     formData.append('thumbPath', thumbPathInput.files[0]);
+    formData.append('trailer', trailerInput.value);
     formData.append('trending', trendInput.value);
     formData.append('limitnation', limitnationInput.value);
     formData.append('status', statusInput.value);
@@ -64,6 +66,7 @@ const handleUpdateMovie = () => {
     let categoryInput = document.querySelector('#editMovie #category');
     let durationInput = document.querySelector('#editMovie #duration');
     let thumbPathInput = document.querySelector('#editMovie #thumbPath');
+    let trailerInput = document.querySelector('#editMovie #trailer');
     let trendInput = document.querySelector('#editMovie #trend');
     let limitnationInput = document.querySelector('#editMovie #limitnation');
     let statusInput = document.querySelector('#editMovie #status');
@@ -80,6 +83,7 @@ const handleUpdateMovie = () => {
     formData.append('category', categoryInput.value);
     formData.append('duration', durationInput.value);
     formData.append('thumbPath', thumbPathInput.files[0]);
+    formData.append('trailer', trailerInput.value);
     formData.append('trending', trendInput.value);
     formData.append('limitnation', limitnationInput.value);
     formData.append('status', statusInput.value);

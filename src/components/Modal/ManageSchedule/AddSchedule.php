@@ -38,6 +38,12 @@ $dataRooms = (object)json_decode($responseRooms, true);
             </select>
         </div>
         <div class="col-6 mb-5">
+            <label for="day" class="col-sm-4 col-form-label">Ngày chiếu</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="day" required>
+            </div>
+        </div>
+        <div class="col-6 mb-5">
             <label for="time" class="col-sm-4 col-form-label">Giờ chiếu</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" id="time" required>

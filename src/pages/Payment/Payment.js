@@ -1,5 +1,5 @@
 let payment = {};
-const handlePay = async (element) => {
+const handlePay = (element) => {
     let encodedCurrentMovie = getCookie('currentMovie');
     let encodedCurrentPayment = getCookie('paymentInfo');
     let encodedCurrentUser = getCookie('userData');
@@ -21,31 +21,36 @@ const handlePay = async (element) => {
     let payApi = "http://localhost/book_movie_ticket_be/api/invoice/create";
     let updateSeatApi = "http://localhost/book_movie_ticket_be/api/seat/update";
 
-    console.log(currentMovie);
 
-    // try {
-    //     await fetch(payApi, {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/x-www-form-urlencoded', // Thay đổi kiểu dữ liệu nếu cần
-    //             // Thêm các headers khác nếu cần
-    //         },
-    //         body: new URLSearchParams({ userId: currentUser.id, movieScheduleId: currentMovie[0].movieScheduleId, seats: seats, total: currentPayment.total })  // Chuyển đổi dữ liệu thành chuỗi JSON nếu cần
-    //     })
+    try {
+        fetch(payApi, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded', // Thay đổi kiểu dữ liệu nếu cần
+                // Thêm các headers khác nếu cần
+            },
+            body: new URLSearchParams({ userId: currentUser.id, movieScheduleId: currentMovie.movieScheduleId, seats: seats, total: currentPayment.total })  // Chuyển đổi dữ liệu thành chuỗi JSON nếu cần
+        })
+            .then(() => {
+                currentPayment.seats.map(async (seat) => {
+                    fetch(updateSeatApi, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded', // Thay đổi kiểu dữ liệu nếu cần
+                            // Thêm các headers khác nếu cần
+                        },
+                        body: new URLSearchParams({ id: seat.seatId, status: 'bought' })  // Chuyển đổi dữ liệu thành chuỗi JSON nếu cần
+                    })
+                        .then(() => {
+                            window.location.href = "http://localhost/Book-movie-tickets/alphacinemas.vn/transaction"
+                        })
+                })
+            })
 
-    //     currentPayment.seats.map(async (seat) => {
-    //         await fetch(updateSeatApi, {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/x-www-form-urlencoded', // Thay đổi kiểu dữ liệu nếu cần
-    //                 // Thêm các headers khác nếu cần
-    //             },
-    //             body: new URLSearchParams({ id: seat.seatId, status: 'bought' })  // Chuyển đổi dữ liệu thành chuỗi JSON nếu cần
-    //         })
-    //     })
-    // } catch (error) {
-    //     console.log(error);
-    // }
+
+    } catch (error) {
+        console.log(error);
+    }
 
 
 }

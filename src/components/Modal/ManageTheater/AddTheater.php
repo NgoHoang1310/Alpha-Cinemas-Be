@@ -22,8 +22,12 @@ $dataTheaters = (object)json_decode($responseTheaters, true);
             </div>
         </div>
         <div class="col-6 mb-5">
-            <label for="thumbPath" class="form-label">Hình ảnh</label>
+            <label for="thumbPath" class="form-label">Hình ảnh rạp</label>
             <input class="form-control" type="file" id="thumbPath">
+        </div>
+        <div class="col-6 mb-5">
+            <label for="imgPrice" class="form-label">Hình ảnh giá</label>
+            <input class="form-control" type="file" id="imgPrice">
         </div>
         <div class="col-6 mb-5">
             <label for="description" class="form-label">Thông tin chi tiết</label>

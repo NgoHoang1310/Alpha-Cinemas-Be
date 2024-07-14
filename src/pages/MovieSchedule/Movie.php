@@ -7,7 +7,7 @@ $dataMovieBySchedule = (object)json_decode($responseMovieBySchedule, true);
 <div class="movie-schedule-main">
     <?php
     $data = $dataMovieBySchedule->data[0];
-    include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/ShowTime/ShowTime.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/Book-movie-tickets/src/components/ShowTime/ShowTime.php';
     ?>
 </div>
 <div class="row movie-schedule-extra">
@@ -17,7 +17,7 @@ $dataMovieBySchedule = (object)json_decode($responseMovieBySchedule, true);
         <div class="col-lg-6 movie-schedule-extra__left">
             <?php
             $data = $dataMovieBySchedule->data[$i];
-            include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/ShowTime/ShowTime.php';
+            include $_SERVER['DOCUMENT_ROOT'] . '/Book-movie-tickets/src/components/ShowTime/ShowTime.php';
             ?>
         </div>
     <?php

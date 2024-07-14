@@ -43,6 +43,12 @@ $dataMovieSchedule = (object)json_decode($responseMovieSchedule, true);
             </select>
         </div>
         <div class="col-6 mb-5">
+            <label for="day" class="col-sm-4 col-form-label">Ngày chiếu</label>
+            <div class="col-sm-8">
+                <input value="<?php echo $dataMovieSchedule->data[0]['day'] ?>" type="text" class="form-control" id="day" required>
+            </div>
+        </div>
+        <div class="col-6 mb-5">
             <label for="time" class="col-sm-4 col-form-label">Giờ chiếu</label>
             <div class="col-sm-8">
                 <input value="<?php echo $dataMovieSchedule->data[0]['time'] ?>" type="text" class="form-control" id="time" required>

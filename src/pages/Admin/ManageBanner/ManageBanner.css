@@ -8,3 +8,12 @@
   border-radius: 5px;
   margin-bottom: 12px;
 }
+
+.banner-btn {
+  width: 200px;
+  padding: 4px 6px;
+  margin: 6px 4px;
+  background-color: red;
+  border-radius: 6px;
+  text-align: center;
+}

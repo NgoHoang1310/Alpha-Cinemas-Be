@@ -1,2 +1,2 @@
 RewriteEngine On
-RewriteRule "alphacinemas.vn" "src/index.php"
+RewriteRule ^alphacinemas.vn src/index.php 

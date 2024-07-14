@@ -42,12 +42,12 @@ const handleClickOnSeat = function (element) {
 
     if (type == 'vip' && status == 'empty') {
         element.classList.toggle('seat-selected-vip');
-        if (seats.indexOf(value) === -1) {
+        if (seats.findIndex(seat => seat.seatId == seatId) === -1) {
             seats.push({ seatId, value });
             seatVipQuantity++;
             total += +price;
         } else {
-            seats.splice(seats.value.indexOf(value), 1);
+            seats.splice(seats.findIndex(seat => seat.seatId == seatId), 1);
             seatVipQuantity--;
             total -= +price;
         }
@@ -57,12 +57,12 @@ const handleClickOnSeat = function (element) {
 
     if (type == 'double' && status == 'empty') {
         element.classList.toggle('seat-selected-double');
-        if (seats.indexOf(value) === -1) {
+        if (seats.findIndex(seat => seat.seatId == seatId) === -1) {
             seats.push({ seatId, value });
             seatDoubleQuantity++;
             total += +price;
         } else {
-            seats.splice(seats.indexOf(value), 1);
+            seats.splice(seats.findIndex(seat => seat.seatId == seatId), 1);
             seatDoubleQuantity--;
             total -= +price;
         }
@@ -83,7 +83,8 @@ const handleContinueBooking = () => {
     // Giải mã dữ liệu JSON
     let decodedData = decodeURIComponent(encodedData);
     let currentMovie = JSON.parse(decodedData);
+    console.log(currentMovie);
 
     document.cookie = "paymentInfo=" + JSON.stringify({ seats, total }) + "; expires=" + new Date(new Date().getTime() + 3600 * 1000).toUTCString() + "; path=/";
-    window.location.href = "http://localhost/Book-movie-tickets/alphacinemas.vn/payment";
+    window.location.href = "http://localhost/Book-movie-tickets/alphacinemas.vn/payment?m=" + currentMovie.id;
 }

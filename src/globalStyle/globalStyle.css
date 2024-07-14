@@ -7,6 +7,7 @@
 :root {
   --header-height: 75px;
   --white-color: white;
+  --blur-color: #999999;
   --black-color: black;
   --primary-text-color: #337ab7;
   --primary-btn-color: #2085c7;
@@ -123,4 +124,19 @@ body .clear {
   width: 100%;
   padding: 0;
   margin: 0;
+}
+
+body .mt-default {
+  margin-top: var(--header-height);
+}
+
+body .scrollable {
+  width: 100%;
+  height: 100px;
+  overflow: auto;
+}
+
+body .wrapper-content {
+  margin-top: 50px;
+  min-height: calc(100vh - 50px);
 }

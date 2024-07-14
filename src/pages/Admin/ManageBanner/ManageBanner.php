@@ -1,6 +1,17 @@
 <?php
 include("/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/Header/AdminHeader.php");
 
+$user = (object)json_decode($_COOKIE['userData'], true);
+if (empty($user->id)) {
+    header('location:http://localhost/Book-movie-tickets/alphacinemas.vn/login');
+    return;
+}
+
+if ($user->id && $user->role != "admin") {
+    header('location:http://localhost/Book-movie-tickets/alphacinemas.vn/login');
+    return;
+}
+
 $apiBanner = 'http://localhost/book_movie_ticket_be/api/banner/get';
 $responseBanner = file_get_contents($apiBanner);
 $dataBanner = (object)json_decode($responseBanner, true);
@@ -10,11 +21,14 @@ $dataBanner = (object)json_decode($responseBanner, true);
 <div class="manage-banner-container">
     <div class="row clear">
         <div class="col-2 sidebar">
-            <?php
-            include("/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/SideBar/SideBar.php");
-            ?>
+            <div style="top: 50px; z-index: 20;" class="position-fixed">
+                <?php
+                $currentUser = $user;
+                include("/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/SideBar/SideBar.php");
+                ?>
+            </div>
         </div>
-        <div class="col-10 manage-banner-content">
+        <div class="col-10 wrapper-content manage-banner-content">
             <h4 class="mt-3 mb-3 fw-bold"><i class="fa-solid fa-image me-3"></i>Hỉnh ảnh xem trước</h4>
             <div class="slider rounded">
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -89,7 +103,7 @@ $dataBanner = (object)json_decode($responseBanner, true);
     <div class="modal fade" id="addNewBanner" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div id="addNewBanner-modal" class="modal-content p-3">
-                <?php include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/Modal/ManageBanner/AddBanner.php' ?>
+                <?php include $_SERVER['DOCUMENT_ROOT'] . '/Book-movie-tickets/src/components/Modal/ManageBanner/AddBanner.php' ?>
             </div>
         </div>
     </div>
@@ -97,7 +111,7 @@ $dataBanner = (object)json_decode($responseBanner, true);
     <div class="modal fade" id="deleteBanner" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div id="deleteBanner-modal" class="modal-content p-3">
-                <?php include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/Modal/ManageBanner/DeleteBanner.php' ?>
+                <?php include $_SERVER['DOCUMENT_ROOT'] . '/Book-movie-tickets/src/components/Modal/ManageBanner/DeleteBanner.php' ?>
             </div>
         </div>
     </div>

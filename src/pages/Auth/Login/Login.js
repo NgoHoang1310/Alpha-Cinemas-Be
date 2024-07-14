@@ -33,7 +33,7 @@ Validator({
                         document.cookie = "userData=" + JSON.stringify({ ...response.data, password: "" }) + "; expires=" + new Date(new Date().getTime() + 3600 * 1000).toUTCString() + "; path=/";
                         setTimeout(function () {
                             if (response.data.role === 'admin') {
-                                window.location.href = 'http://localhost/Book-movie-tickets/alphacinemas.vn/dardboard';
+                                window.location.href = 'http://localhost/Book-movie-tickets/alphacinemas.vn/dashboard';
                             } else {
                                 window.location.href = 'http://localhost/Book-movie-tickets/alphacinemas.vn/home';
                             }

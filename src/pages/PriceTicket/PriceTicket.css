@@ -1,0 +1,13 @@
+.payment-modal-title > img {
+  width: 40px;
+  height: 40px;
+}
+
+.payment-user-info {
+  color: #494c62;
+}
+
+.ticket-selected,
+.seat-selected {
+  color: #494c62;
+}

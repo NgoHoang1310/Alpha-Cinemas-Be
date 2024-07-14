@@ -1,12 +1,12 @@
 <?php
-include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/components/Header/Header.php';
-include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/ultils/genarateSchedule.php';
-include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/ultils/convertDate.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/Book-movie-tickets/src/components/Header/Header.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/Book-movie-tickets/src/ultils/genarateSchedule.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/Book-movie-tickets/src/ultils/convertDate.php';
 
 $dateList = generateDate("7");
 ?>
 
-<div class="movie-container">
+<div class="movie-container mt-default">
     <div class="container-md movie-schedule">
         <div class="movie-schedule-nav">
             <?php
@@ -20,7 +20,7 @@ $dateList = generateDate("7");
         </div>
         <div class="default-height movie-schedule-content">
             <?php
-            include '/Applications/XAMPP/xamppfiles/htdocs/Book-movie-tickets/src/pages/MovieSchedule/Movie.php'
+            include $_SERVER['DOCUMENT_ROOT'] . '/Book-movie-tickets/src/pages/MovieSchedule/Movie.php'
             ?>
         </div>
     </div>
